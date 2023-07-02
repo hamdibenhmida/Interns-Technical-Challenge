@@ -8,16 +8,16 @@ public class Bullet : MonoBehaviour
     {
 
         Transform hitTransform = collision.transform;
+            Debug.Log(hitTransform.gameObject.name);
 
         if (hitTransform.CompareTag("Player"))
         {
-            Debug.Log("hit player");
             hitTransform.GetComponent<PlayerHealth>().takeDamage(10);
         }
         if (hitTransform.CompareTag("Enemy"))
         {
             Debug.Log("hit enemy");
-            //implement enemy health and health bar animation
+            hitTransform.GetComponent<EnemyHealth>().takeDamage(100);
 
         }
         Destroy(gameObject);

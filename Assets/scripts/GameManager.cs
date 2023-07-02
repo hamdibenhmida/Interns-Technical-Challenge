@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public InputManager inputManager;
 
-
+    
 
     void Start()
     {
@@ -31,7 +31,8 @@ public class GameManager : MonoBehaviour
                 Pause();
             else Resume();
         }
-
+       
+        Object.Destroy(GameObject.Find("Cube"));
     }
 
     public void Pause()

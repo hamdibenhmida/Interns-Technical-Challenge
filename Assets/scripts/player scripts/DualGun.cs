@@ -49,10 +49,10 @@ public class DualGun : MonoBehaviour
         if (currentAmmo > 0)
         {
             GameObject activeGun = (isRightGunActive) ? rightGun : leftGun;
-            GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, activeGun.transform.position, transform.rotation);
+            GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, activeGun.transform.position, transform.rotation * Quaternion.Euler(0f, 90f, 90f));
             // Customize the bullet's behavior
             Vector3 shootDirection = camera.transform.forward   ;//(enemy.transform.position - activeGun.transform.position).normalized;
-            bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-3f, 3f), Vector3.up) * shootDirection * 100;
+            bullet.GetComponent<Rigidbody>().velocity =  shootDirection * 100;
 
             bullet.SetActive(true);
 
